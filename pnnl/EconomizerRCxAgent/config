@@ -1,30 +1,21 @@
 {
     "agentid": "economizerrcx",
     "application": "economizer.economizer_rcx.Application",
-
-    "device": {
-        "campus": "campus1",
-        "building": "building1",
-        "unit": {
-            "rtu4": {
-                "subdevices": []
-             }
-        },
-        "analysis_name": "Economizer_RCx"
-    },
-
-    "output_file": "./junk.csv",
-
+    "analysis_name": "Economizer_RCx",
     "mode": "PASSIVE",
 
+    "device": [],
+
     "arguments": {
-        "fan_status": "supplyfanstatus",
-        "oa_temp": "outdoorairtemperature",
-        "ra_temp": "returnairtemperature",
-        "ma_temp": "mixedairtemperature",
-        "damper_signal": "outdoordampersignal",
-        "cool_call": "coolingvalveposition",
-        "fan_speedcmd": "supplyfanspeed",
+        "point_mapping": {
+            "supply_fan_status": "SupplyFanStatus",
+            "outdoor_air_temperature": "OutdoorAirTemperature",
+            "return_air_temperature": "ReturnAirTemperature",
+            "mixed_air_temperature": "MixedAirTemperature",
+            "outdoor_damper_signal": "OutdoorDamperSignal",
+            "cool_call": "CoolingValvePosition",
+            "supply_fan_speed": "SupplyFanSpeed"
+        },
         "data_window": 1,
         "no_required_data": 1,
         "open_damper_time": 0,
@@ -49,9 +40,11 @@
         "insufficient_damper_threshold": 15.0,
         "temp_damper_threshold": 90.0,
         "rated_cfm": 1000.0,
-        "eer": 10.0
+        "eer": 10.0,
+        "economizer_type": "DDB",
+        "temp_deadband": 1.0
+        
     },
-
     "conversion_map": {
         ".*Temperature": "float",
         ".*Command": "float",
